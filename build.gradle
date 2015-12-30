@@ -169,3 +169,22 @@ FileCollection generateClassDirs(Collection projects) {
 
     return tree
 }
+
+artifactory {
+  contextUrl = 'http://localhost:8081/artifactory'
+  publish {
+    contextUrl = 'http://localhost:8081/artifactory'
+    repository {
+      repoKey = 'libs-release-local'
+      username = 'admin'
+      password = 'password'
+      maven = true
+    }
+  }
+  resolve {
+    contextUrl = 'http://localhost:8081/artifactory'
+    repository {
+      repoKey = 'libs-release'
+    }
+  }
+} 
