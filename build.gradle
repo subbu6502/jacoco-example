@@ -9,18 +9,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
-        classpath "com.adaptc.gradle:nexus-workflow:0.5"
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:2.2.4"
     }
 }
-apply plugin: org.jfrog.gradle.plugin.artifactory.ArtifactoryPublicationsPlugin
-apply plugin: com.adaptc.gradle.nexusworkflow.NexusWorkflowPlugin
 
 allprojects {
-    apply plugin: 'artifactory'
-    artifactory {
-        contextUrl = artifactorycontextUrl
-    }
     repositories {
         jcenter()
     }
@@ -82,7 +74,8 @@ subprojects { prj ->
 
             sourceDirectories = files('src/main/java')
             executionData = files('build/jacoco/testDebug.exec')
-
+            additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+}
             doFirst {
                 files('build/intermediates/classes/debug').getFiles().each { file ->
                     if (file.name.contains('$$')) {
