@@ -74,7 +74,6 @@ subprojects { prj ->
 
             sourceDirectories = files('src/main/java')
             executionData = files('build/jacoco/testDebug.exec')
-            additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
 }
             doFirst {
                 files('build/intermediates/classes/debug').getFiles().each { file ->
