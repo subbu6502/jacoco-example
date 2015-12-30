@@ -13,7 +13,10 @@ buildscript {
 }
 
 allprojects {
-
+    apply plugin: 'artifactory'
+    artifactory {
+        contextUrl = artifactorycontextUrl
+    }
     repositories {
         jcenter()
     }
