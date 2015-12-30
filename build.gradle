@@ -2,7 +2,7 @@
  *  Apply Jacoco plugin to root build
  */
 apply plugin: 'jacoco'
-appli plugin 'artifactory'
+apply plugin: 'artifactory'
 
 buildscript {
     repositories {
