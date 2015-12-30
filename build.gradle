@@ -74,7 +74,7 @@ subprojects { prj ->
 
             sourceDirectories = files('src/main/java')
             executionData = files('build/jacoco/testDebug.exec')
-}
+
             doFirst {
                 files('build/intermediates/classes/debug').getFiles().each { file ->
                     if (file.name.contains('$$')) {
