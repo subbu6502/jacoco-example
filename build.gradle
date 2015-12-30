@@ -48,7 +48,7 @@ subprojects { prj ->
         apply plugin: 'jacoco'
 
         jacoco {
-            version '0.7.2.201409121644'
+            version '0.7.6.201505271001'
         }
 
         task jacocoReport(type: JacocoReport, dependsOn: 'testDebug') {
