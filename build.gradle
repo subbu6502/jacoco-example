@@ -53,6 +53,10 @@ subprojects { prj ->
         }
 
         task jacocoReport(type: JacocoReport, dependsOn: 'testDebug') {
+            //cleaning up the JiBx classes to jacoco will not cause problems for CareDiscovery
+            doFirst {
+                delete fileTree (dir: "${buildDir}/classes", include: "**/JiBX_*.class")
+            }
             group = 'Reporting'
             description = 'Generate Jacoco coverage reports after running tests.'
 
